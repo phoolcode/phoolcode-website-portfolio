@@ -1,0 +1,113 @@
+/* Reset + base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-color: #ffe6f7;
+  color: #d63384;
+  cursor: url('https://cur.cursors-4u.net/nature/nat-11/nat1011.cur'), auto;
+}
+
+/* Main container */
+.container {
+  margin: 3rem auto;
+  padding: 2rem;
+  max-width: 800px;
+  background: #fff0f6;
+  border: 4px double #ff99cc;
+  border-radius: 25px;
+  box-shadow: 0 0 25px #ffb6c1;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  color: #ff1493;
+  text-shadow: 2px 2px #fff;
+  animation: blink 1.5s step-end infinite;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ff69b4;
+  margin-top: 2rem;
+}
+
+/* Profile image */
+.profile {
+  width: 160px;
+  border-radius: 50%;
+  border: 4px dotted #ffccff;
+  margin: 1rem 0;
+  box-shadow: 0 0 15px #ffaad4;
+}
+
+/* Navigation */
+.nav {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #ff69b4;
+  border: 2px dashed #ffaad4;
+  border-radius: 12px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+.nav:hover {
+  background-color: #ffe0ef;
+  color: #c71585;
+  border-style: solid;
+}
+
+/* Badges */
+.badges {
+  margin: 1.5rem 0;
+}
+
+.badges img {
+  width: 60px;
+  margin: 0 10px;
+  border: 2px solid #ffd1dc;
+  border-radius: 8px;
+  padding: 4px;
+  background: #fff0fa;
+  box-shadow: 0 0 10px #ffc0cb;
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  text-align: left;
+}
+
+/* Animations */
+@keyframes blink {
+  0% { color: #ff69b4; }
+  50% { color: #ff1493; }
+  100% { color: #ff69b4; }
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .badges img {
+    width: 50px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
