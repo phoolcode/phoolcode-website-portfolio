@@ -1,44 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Falguni's Cute Web Zone</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ hey it's me! ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Fredoka+One&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kalam', cursive;
+            background: linear-gradient(135deg, #e8f5e8, #f0e6ff, #ffe6f2, #e6f3ff);
+            background-size: 400% 400%;
+            animation: gentleShift 15s ease infinite;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23ff69b4" opacity="0.8"/><text x="10" y="14" text-anchor="middle" font-size="12">♡</text></svg>'), auto;
+        }
+        
+        @keyframes gentleShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .doodle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(5deg); }
+            66% { transform: translateY(-5px) rotate(-3deg); }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        .main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            color: #6b46c1;
+            text-shadow: 3px 3px 0px #fbbf24, 6px 6px 0px #f59e0b;
+            transform: rotate(-2deg);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #7c3aed;
+            transform: rotate(1deg);
+            margin-bottom: 30px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 3px dashed #f59e0b;
+        }
+        
+        .scattered-nav {
+            position: relative;
+            height: 200px;
+            margin: 50px 0;
+        }
+        
+        .nav-item {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #000;
+            border-radius: 20px;
+            padding: 15px 25px;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            transform-origin: center;
+            box-shadow: 4px 4px 0px #fbbf24;
+        }
+        
+        .nav-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: #fef3c7;
+            box-shadow: 6px 6px 0px #f59e0b;
+        }
+        
+        .nav-item:nth-child(1) { top: 20px; left: 10%; transform: rotate(-5deg); }
+        .nav-item:nth-child(2) { top: 50px; right: 15%; transform: rotate(8deg); }
+        .nav-item:nth-child(3) { top: 120px; left: 20%; transform: rotate(-3deg); }
+        .nav-item:nth-child(4) { top: 10px; left: 50%; transform: rotate(4deg); }
+        .nav-item:nth-child(5) { top: 100px; right: 10%; transform: rotate(-8deg); }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.8);
+            border: 4px solid #000;
+            border-radius: 25px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            transform: rotate(-1deg);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section:nth-child(even) {
+            transform: rotate(1deg);
+            border-color: #7c3aed;
+        }
+        
+        .section h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: #ec4899;
+            margin-bottom: 20px;
+            transform: rotate(2deg);
+            display: inline-block;
+        }
+        
+        .section:nth-child(even) h2 {
+            color: #7c3aed;
+            transform: rotate(-2deg);
+        }
+        
+        .cute-icons {
+            position: absolute;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .project-chaos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #000;
+            border-radius: 15px;
+            padding: 20px;
+            width: 280px;
+            transition: all 0.3s ease;
+            position: relative;
+            transform-origin: center;
+            box-shadow: 4px 4px 0px #fbbf24;
+        }
+        
+        .project-card:nth-child(odd) {
+            transform: rotate(-2deg);
+            border-color: #ec4899;
+            box-shadow: 4px 4px 0px #f9a8d4;
+        }
+        
+        .project-card:nth-child(even) {
+            transform: rotate(2deg);
+            border-color: #7c3aed;
+            box-shadow: 4px 4px 0px #c4b5fd;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05) rotate(0deg);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card h3 {
+            font-family: 'Fredoka One', cursive;
+            color: #6b46c1;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-card p {
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .tech-tag {
+            background: #fbbf24;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 2px solid #000;
+        }
+        
+        .hobby-chaos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .hobby-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #000;
+            border-radius: 20px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 4px 4px 0px #fbbf24;
+        }
+        
+        .hobby-card:nth-child(1) { transform: rotate(-5deg); border-color: #ec4899; }
+        .hobby-card:nth-child(2) { transform: rotate(3deg); border-color: #7c3aed; }
+        .hobby-card:nth-child(3) { transform: rotate(-2deg); border-color: #10b981; }
+        .hobby-card:nth-child(4) { transform: rotate(4deg); border-color: #f59e0b; }
+        .hobby-card:nth-child(5) { transform: rotate(-3deg); border-color: #ef4444; }
+        .hobby-card:nth-child(6) { transform: rotate(2deg); border-color: #8b5cf6; }
+        
+        .hobby-card:hover {
+            transform: scale(1.1) rotate(0deg);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hobby-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+            animation: wiggle 2s infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+        
+        .contact-chaos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 30px;
+            color: #4a4a4a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px #fbbf24;
+            font-weight: 500;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-3px) rotate(2deg);
+            box-shadow: 6px 6px 0px #f59e0b;
+        }
+        
+        .about-me {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 20px;
+            border: 3px dashed #ec4899;
+            transform: rotate(-1deg);
+        }
+        
+        .transition-note {
+            background: #fef3c7;
+            border: 3px solid #f59e0b;
+            color: #000;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 500;
+            transform: rotate(1deg);
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hand-drawn-arrow {
+            position: absolute;
+            font-size: 2rem;
+            color: #ec4899;
+            animation: pointBounce 2s infinite;
+        }
+        
+        @keyframes pointBounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .scattered-nav {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .nav-item {
+                position: static;
+                transform: none !important;
+            }
+            
+            .section {
+                padding: 20px;
+                transform: none;
+            }
+            
+            .project-card, .hobby-card {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🌸 Welcome to Falguni's Corner 🌸</h1>
-    <img src="/home/athena_user/phoolcode-website-portfolio/assets/pixel-icons/falguni.jpg" class="profile" />
-    
-    <p>Hello internet friend! I'm Falguni. I love AI, cats, and glitter. This is my retro-cute webspace ✨</p>
-    
-    <div class="badges">
-      <img src="/home/athena_user/phoolcode-website-portfolio/assets/pixel-icons/coding.jpeg" title="ML Engineer" />
-      <img src="/home/athena_user/phoolcode-website-portfolio/assets/pixel-icons/cat.jpeg" title="Cat Foster Mom" />
-    </div>
-    
-    <a href="#about" class="nav">About Me</a> |
-    <a href="#projects" class="nav">Projects</a> |
-    <a href="#guestbook" class="nav">Guestbook</a>
+    <!-- Floating doodles -->
+    <div class="doodle" style="top: 10%; left: 5%; font-size: 2rem;">🐱</div>
+    <div class="doodle" style="top: 20%; right: 10%; font-size: 1.5rem;">💕</div>
+    <div class="doodle" style="top: 50%; left: 8%; font-size: 2rem;">🧶</div>
+    <div class="doodle" style="top: 70%; right: 5%; font-size: 1.8rem;">⭐</div>
+    <div class="doodle" style="top: 30%; left: 85%; font-size: 1.5rem;">🌙</div>
+    <div class="doodle" style="top: 80%; left: 15%; font-size: 1.8rem;">🦋</div>
+    <div class="doodle" style="top: 60%; right: 15%; font-size: 1.5rem;">🌈</div>
+    <div class="doodle" style="top: 15%; left: 70%; font-size: 2rem;">🎀</div>
 
-    <div id="about">
-      <h2>💖 About Me</h2>
-      <p>I'm an ML engineer turned engineering management student, building tools with empathy and sparkles.</p>
+    <div class="container">
+        <header>
+            <h1 class="main-title">hey! i'm [your name] ♡</h1>
+            <p class="subtitle">ML engineer → product dreamer ✨ building cute & smart things</p>
+        </header>
+
+        <nav class="scattered-nav">
+            <a href="#about" class="nav-item">about me 🌸</a>
+            <a href="#tech" class="nav-item">techy stuff 💻</a>
+            <a href="#product" class="nav-item">product ideas 💡</a>
+            <a href="#hobbies" class="nav-item">fun things 🎨</a>
+            <a href="#contact" class="nav-item">let's chat! 💌</a>
+        </nav>
+
+        <section id="about" class="section">
+            <div class="cute-icons" style="top: -10px; right: 20px;">🌺</div>
+            <h2>about me</h2>
+            <div class="about-me">
+                <p>hiii! i'm a super passionate ML engineer who loves making computers do magical things ✨ i spend my days training neural networks and teaching machines to be smart (and hopefully nice too!)</p>
+                
+                <div class="transition-note">
+                    🚀 plot twist: i'm transitioning into product management! 
+                    turns out i love thinking about how to make tech actually useful for humans 💕
+                </div>
+                
+                <p>when i'm not coding or sketching wireframes, you'll find me surrounded by yarn, doodling in my notebook, or having deep conversations with my houseplants about AI ethics 🌱</p>
+            </div>
+        </section>
+
+        <section id="tech" class="section">
+            <div class="cute-icons" style="top: -10px; right: 30px;">🔬</div>
+            <h2>my techy projects</h2>
+            <div class="project-chaos">
+                <div class="project-card">
+                    <h3>mood ring for your playlist 💍</h3>
+                    <p>uses your webcam to read your vibes and creates spotify playlists that match your energy. because sometimes you need the computer to know you're sad before you do</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">opencv</span>
+                        <span class="tech-tag">pytorch</span>
+                        <span class="tech-tag">spotify api</span>
+                        <span class="tech-tag">feelings</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>plant parent assistant 🌿</h3>
+                    <p>little IoT device that watches your plants and texts you when they're thirsty, sick, or just need some love. also judges your plant care skills</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">raspberry pi</span>
+                        <span class="tech-tag">tensorflow</span>
+                        <span class="tech-tag">plant whispering</span>
+                        <span class="tech-tag">iot</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>recipe genie 🧞‍♀️</h3>
+                    <p>AI that learns what you like to eat and suggests recipes based on your taste buds, dietary restrictions, and whatever random ingredients you have lying around</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">nlp</span>
+                        <span class="tech-tag">tensorflow</span>
+                        <span class="tech-tag">food magic</span>
+                        <span class="tech-tag">python</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>money crystal ball 🔮</h3>
+                    <p>predicts your future spending patterns and gently roasts your financial decisions while helping you save money for more important things (like yarn)</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">scikit-learn</span>
+                        <span class="tech-tag">financial judgment</span>
+                        <span class="tech-tag">d3.js</span>
+                        <span class="tech-tag">regret</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="product" class="section">
+            <div class="cute-icons" style="top: -10px; right: 40px;">💭</div>
+            <h2>product daydreams</h2>
+            <div class="project-chaos">
+                <div class="project-card">
+                    <h3>study buddy AI 📚</h3>
+                    <p>personalized learning companion that adapts to how your brain works best. includes study games, cute progress tracking, and gentle reminders to take breaks</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">edtech</span>
+                        <span class="tech-tag">brain science</span>
+                        <span class="tech-tag">cuteness</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>earth love tracker 🌍</h3>
+                    <p>gamified app that tracks your eco-friendly choices and shows you the cute animals you're helping. includes community challenges and virtual tree planting</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">sustainability</span>
+                        <span class="tech-tag">save the world</span>
+                        <span class="tech-tag">cute animals</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>mindful moments 🧘‍♀️</h3>
+                    <p>AI-powered wellness app that detects when you're stressed and suggests personalized self-care activities. because taking care of yourself should be easy</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">wellness</span>
+                        <span class="tech-tag">ai care</span>
+                        <span class="tech-tag">self love</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>time traveler's guide 🕰️</h3>
+                    <p>AR app that shows you historical stories and hidden gems as you explore cities. like having a time machine in your pocket</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">ar/vr</span>
+                        <span class="tech-tag">time travel</span>
+                        <span class="tech-tag">stories</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies" class="section">
+            <div class="cute-icons" style="top: -10px; right: 50px;">🎪</div>
+            <h2>things that make me happy</h2>
+            <div class="hobby-chaos">
+                <div class="hobby-card">
+                    <span class="hobby-emoji">🧶</span>
+                    <h3>yarn crafts</h3>
+                    <p>knitting, crocheting, and collecting way too much yarn. my stash has its own room now</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <span class="hobby-emoji">🐱</span>
+                    <h3>cat videos</h3>
+                    <p>researching feline behavior for "productivity" purposes. my cats are my code review team</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <span class="hobby-emoji">🎨</span>
+                    <h3>doodling</h3>
+                    <p>filling notebooks with tiny drawings and UI wireframes. sometimes they're the same thing</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <span class="hobby-emoji">🌱</span>
+                    <h3>plant mom life</h3>
+                    <p>keeping 47 plants alive and naming them after programming languages</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <span class="hobby-emoji">📖</span>
+                    <h3>sci-fi books</h3>
+                    <p>reading about robot futures and getting ideas for my next project</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <span class="hobby-emoji">🎵</span>
+                    <h3>lo-fi beats</h3>
+                    <p>making chill music for coding and studying. my github commits sync to BPM</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="cute-icons" style="top: -10px; right: 60px;">💌</div>
+            <h2>let's be friends!</h2>
+            <div class="contact-chaos">
+                <a href="mailto:your.email@example.com" class="contact-link">
+                    <span>📧</span>
+                    <span>email me</span>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-link">
+                    <span>💼</span>
+                    <span>linkedin</span>
+                </a>
+                <a href="https://github.com/yourusername" class="contact-link">
+                    <span>💻</span>
+                    <span>github</span>
+                </a>
+                <a href="https://twitter.com/yourusername" class="contact-link">
+                    <span>🐦</span>
+                    <span>twitter</span>
+                </a>
+            </div>
+        </section>
     </div>
 
-    <div id="projects">
-      <h2>📁 Projects</h2>
-      <ul>
-        <li>🧠 <b>AI Labeling Assistant:</b> Natural language magic for document classification.</li>
-        <li>🐾 <b>Cat Foster Tracker:</b> A dashboard to track foster kittens’ growth and care.</li>
-      </ul>
-    </div>
-
-    <div id="guestbook">
-      <h2>📝 Guestbook</h2>
-      <p>Leave a message in my heart-shaped guestbook (coming soon)!</p>
-    </div>
-  </div>
+    <script>
+        // Add floating hearts randomly
+        function createFloatingIcon() {
+            const icons = ['💕', '⭐', '🌸', '🦋', '✨', '🌙', '💫', '🎀'];
+            const icon = document.createElement('div');
+            icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            icon.style.position = 'fixed';
+            icon.style.left = Math.random() * 100 + '%';
+            icon.style.top = '100%';
+            icon.style.fontSize = '1.5rem';
+            icon.style.pointerEvents = 'none';
+            icon.style.zIndex = '5';
+            icon.style.animation = 'floatUp 6s ease-out forwards';
+            document.body.appendChild(icon);
+            
+            setTimeout(() => icon.remove(), 6000);
+        }
+        
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Create floating icons periodically
+        setInterval(createFloatingIcon, 3000);
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add wiggle effect to hobby emojis on hover
+        document.querySelectorAll('.hobby-emoji').forEach(emoji => {
+            emoji.addEventListener('mouseenter', function() {
+                this.style.animation = 'wiggle 0.5s infinite';
+            });
+            
+            emoji.addEventListener('mouseleave', function() {
+                this.style.animation = 'wiggle 2s infinite';
+            });
+        });
+        
+        // Add cute click effects
+        document.addEventListener('click', function(e) {
+            const clickIcon = document.createElement('div');
+            clickIcon.innerHTML = '✨';
+            clickIcon.style.position = 'fixed';
+            clickIcon.style.left = e.clientX + 'px';
+            clickIcon.style.top = e.clientY + 'px';
+            clickIcon.style.fontSize = '1.5rem';
+            clickIcon.style.pointerEvents = 'none';
+            clickIcon.style.zIndex = '1000';
+            clickIcon.style.animation = 'clickSparkle 1s ease-out forwards';
+            document.body.appendChild(clickIcon);
+            
+            setTimeout(() => clickIcon.remove(), 1000);
+        });
+        
+        // Add click sparkle animation
+        const clickStyle = document.createElement('style');
+        clickStyle.textContent = `
+            @keyframes clickSparkle {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+                100% { transform: scale(0) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(clickStyle);
+    </script>
 </body>
 </html>
